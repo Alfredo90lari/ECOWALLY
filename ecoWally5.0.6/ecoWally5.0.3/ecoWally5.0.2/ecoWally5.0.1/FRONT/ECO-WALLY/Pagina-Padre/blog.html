@@ -1,0 +1,446 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="Untree.co" />
+  <link rel="shortcut icon" href="images/favicon-32x32.png" />
+  <title>Mapa</title>
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="css/tiny-slider.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/mapa.css"rel="stylesheet"/>
+</head>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ECO-WALLY<span>.</span></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+        aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li><a class="nav-link" href="shop.html">Tienda</a></li>
+          <li><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
+          <li><a class="nav-link" href="services.html">Servicios</a></li>
+          <li class="active">
+            <a class="nav-link" href="blog.html">Mapa</a>
+          </li>
+          <li><a class="nav-link" href="contact.html">Contactanos</a></li>
+        </ul>
+
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+          <li>
+            <a class="nav-link" href="../LOGIN/LOGINp1/Login_v1/indexL.html"><img src="images/user.svg" /></a>
+          </li>
+          <li>
+            <a class="nav-link" href="cart.html"><img src="images/cart.svg" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Header/Navigation -->
+
+  <!-- Start Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Mapa</h1>
+            <p class="mb-4">
+              En nuestra página web ofrecemos un mapa a nuestros usuarios
+              para que interactúen y así puedan buscar lugares ecológicos
+              por el departamento y municipio que deseen. En EcoWally
+              intentamos facilitar la cercanía de los lugares ecológicos
+              con los usuarios.
+            </p>
+            <p>
+              <a href="shop.html" class="btn btn-secondary me-2">Ir a la Tienda</a><a href="index.html"
+                class="btn btn-white-outline">Explorar</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="hero-img-wrap">
+            <img src="images/Proyecto-nuevorr.png  " class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->
+  
+  <!--Implementacion del Mapa-->
+      <div class="contenedor">
+          <div class="map-contenedor">
+              <div id="map"></div>
+          </div>
+          <div class="form-contenedor">
+    <label for="place">Buscar lugar:</label>
+    <input type="text" id="place" name="place" placeholder="Ingrese lugar...">
+    
+    <label for="city">Buscar ciudad:</label>
+    <input type="text" id="city" name="city" placeholder="Ingrese ciudad...">
+              
+              <label for="department">Departamento:</label>
+              <select id="department" name="department">
+              <option value="">Seleccionar</option>
+              <option value="Alta Verapaz">Alta Verapaz</option>
+              <option value="Baja Verapaz">Baja Verapaz</option>
+              <option value="Chimaltenango">Chimaltenango</option>
+              <option value="Chiquimula">Chiquimula</option>
+              <option value="El Progreso">El Progreso</option>
+              <option value="Escuintla">Escuintla</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Huehuetenango">Huehuetenango</option>
+              <option value="Izabal">Izabal</option>
+              <option value="Jalapa">Jalapa</option>
+              <option value="Jutiapa">Jutiapa</option>
+              <option value="Petén">Petén</option>
+              <option value="Quetzaltenango">Quetzaltenango</option>
+              <option value="Quiché">Quiché</option>
+              <option value="Retalhuleu">Retalhuleu</option>
+              <option value="Sacatepéquez">Sacatepéquez</option>
+              <option value="San Marcos">San Marcos</option>
+              <option value="Santa Rosa">Santa Rosa</option>
+              <option value="Sololá">Sololá</option>
+              <option value="Suchitepéquez">Suchitepéquez</option>
+              <option value="Totonicapán">Totonicapán</option>
+              <option value="Zacapa">Zacapa</option>
+            </select>
+              </select>
+              
+              <button onclick="searchInMap()">Buscar en el mapa</button>
+              <button onclick="redirectToGoogleMaps()">Ir a Google Maps</button>
+              <button onclick="clearFields()">Limpiar Campos</button>
+              
+              <p id="error" class="error"></p>
+          </div>
+      </div>
+      
+      <script>
+          function initMap() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: 15.7835, lng: -90.2308},
+                  zoom: 8
+              });
+              window.map = map;
+          }
+          
+          function searchInMap() {
+              var place = document.getElementById('place').value;
+              var city = document.getElementById('city').value;
+              var department = document.getElementById('department').value;
+              var error = document.getElementById('error');
+              error.textContent = '';
+              
+              if (!place || !city || !department) {
+                  error.textContent = 'Por favor, llene todos los campos.';
+                  return;
+              }
+              
+              var geocoder = new google.maps.Geocoder();
+              geocoder.geocode({'address': place + ', ' + city + ', ' + department + ', Guatemala'}, function(results, status) {
+                  if (status === 'OK') {
+                      window.map.setCenter(results[0].geometry.location);
+                      var marker = new google.maps.Marker({
+                          map: window.map,
+                          position: results[0].geometry.location
+                      });
+                  } else {
+                      error.textContent = 'No se pudo encontrar el lugar: ' + status;
+                  }
+              });
+          }
+          
+          function redirectToGoogleMaps() {
+              var place = document.getElementById('place').value;
+              var city = document.getElementById('city').value;
+              var department = document.getElementById('department').value;
+              var error = document.getElementById('error');
+              error.textContent = '';
+              
+              if (!place || !city || !department) {
+                  error.textContent = 'Por favor, llene todos los campos.';
+                  return;
+              }
+              
+              var query = encodeURIComponent(place + ', ' + city + ', ' + department + ', Guatemala');
+              window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
+          }
+          
+          function clearFields() {
+              document.getElementById('place').value = '';
+              document.getElementById('city').value = '';
+              document.getElementById('department').value = '';
+              document.getElementById('error').textContent = '';
+          }
+      </script>
+      
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb__8uOYz5rs0ssfsiq9AqyPHhmwNpm10&callback=initMap"></script>
+    
+  <!--Fin de Implementacion de Mapa-->
+
+  <!-- Start Testimonial Slider -->
+  <div class="testimonial-section before-footer-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mx-auto text-center">
+          <h1 class="section-title">SOBRE NOSOTROS</h1>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="testimonial-slider-wrap text-center">
+            <div id="testimonial-nav">
+              <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+              <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+            </div>
+
+            <div class="testimonial-slider">
+              <div class="item">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-block text-center">
+                      <blockquote class="mb-5">
+                        <p>
+                          &ldquo;Ofrecer al usuario un mejor estilo de vida,
+                          a través de nuestros servicios y productos, para
+                          lograrlo contamos con varias herramientas que ayudarán
+                          al usuario a cumplir con esta meta.&rdquo;
+                        </p>
+                      </blockquote>
+
+                      <div class="author-info">
+                        <div class="author-pic">
+                          <img src="images/image (3).png" alt="Maria Jones" class="img-fluid" />
+                        </div>
+                        <h1 class="font-weight-bold">MISION</h1>
+                        <span class="position d-block mb-3">ECO-WALLY 2024</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END item -->
+
+              <div class="item">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-block text-center">
+                      <blockquote class="mb-5">
+                        <p>
+                          &ldquo;Llegar a más personas en toda Guatemala
+                          y hacer conciencia sobre la contaminación que
+                          existe hoy en día en el país, además de unir a
+                          diferentes empresas ecológicas que estén dispuestas
+                          a contribuir con nuestra causa y así tener un cambio
+                          significativo en nuestro país.&rdquo;
+                        </p>
+                      </blockquote>
+
+                      <div class="author-info">
+                        <div class="author-pic">
+                          <img src="images/image (3).png" alt="Maria Jones" class="img-fluid" />
+                        </div>
+                        <h1 class="font-weight-bold">VISION</h1>
+                        <span class="position d-block mb-3">ECO-WALLY 2024</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END item -->
+
+              <div class="item">
+                <div class="row justify-content-center">
+                  <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-block text-center">
+                      <blockquote class="mb-5">
+                        <p>
+                          &ldquo;Somos una plataforma Eco-friendly dedicada
+                          a mejorar la calidad de vida de nuestros usuarios
+                          a través de productos y servicios innovadores.
+                          Aspiramos a ser una fuerza impulsora en la creación
+                          de un futuro más saludable y sostenible para todos
+                          en Guatemala.&rdquo;
+                        </p>
+                      </blockquote>
+
+                      <div class="author-info">
+                        <div class="author-pic">
+                          <img src="images/image (3).png" alt="Maria Jones" class="img-fluid" />
+                        </div>
+                        <h1 class="font-weight-bold">¿Quienes Somos?</h1>
+                        <span class="position d-block mb-3">ECO-WALLY 2024</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Testimonial Slider -->
+
+  <!-- Start Footer Section -->
+  <footer class="footer-section">
+    <div class="container relative">
+      <div class="sofa-img">
+        <img src="images/Proyecto-nuevorr-removebg-preview.png" alt="Image" class="img-fluid" />
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="subscription-form">
+            <h3 class="d-flex align-items-center">
+              <span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid" /></span><span>Mas
+                informacion a nuestro correo</span>
+            </h3>
+
+            <form action="#" class="row g-3">
+              <div class="col-auto">
+                <input type="text" class="form-control" placeholder="Ingresa tu Nombre" />
+              </div>
+              <div class="col-auto">
+                <input type="email" class="form-control" placeholder="Ingresa tu email" />
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary">
+                  <span class="fa fa-paper-plane"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4">
+          <div class="mb-4 footer-logo-wrap">
+            <a href="#" class="footer-logo">ECO-WALLY<span>.</span></a>
+          </div>
+          <p class="mb-4">
+            Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
+            quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+            vulputate velit imperdiet dolor tempor tristique. Pellentesque
+            habitant
+          </p>
+
+          <ul class="list-unstyled custom-social">
+            <li>
+              <a href="#"><span class="fa fa-brands fa-facebook-f"></span></a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-brands fa-twitter"></span></a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-brands fa-instagram"></span></a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-brands fa-linkedin"></span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="row links-wrap">
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Knowledge base</a></li>
+                <li><a href="#">Live chat</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Our team</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="#">Nordic Chair</a></li>
+                <li><a href="#">Kruzo Aero</a></li>
+                <li><a href="#">Ergonomic Chair</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top copyright">
+        <div class="row pt-4">
+          <div class="col-lg-6">
+            <p class="mb-2 text-center text-lg-start">
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . Derechos Reservados. &mdash; Diseños hecho por Eco-Wally
+              <a href="index.html">eco-wally</a> Distribucion
+              <a hreff="#">Designers of eco-wally</a>
+              <!-- License information: https://untree.co/license/ -->
+            </p>
+          </div>
+
+          <div class="col-lg-6 text-center text-lg-end">
+            <ul class="list-unstyled d-inline-flex ms-auto">
+              <li class="me-4"><a href="#">Terminos &amp; Condiciones</a></li>
+              <li><a href="#">Politica de Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer Section -->
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
